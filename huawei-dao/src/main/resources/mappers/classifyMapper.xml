@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间应该是对应接口的包名+接口名 -->
+<mapper namespace="com.liangyaofeng.dao.ClassifyDao">
+
+    <select id="selectAllClassify" resultType="com.liangyaofeng.entity.Classify">
+        select cid,Sort,Series from classify
+
+    </select>
+
+    <insert id="addClassify">
+        insert into classify(cid,Sort,Series) values(#{cid},#{Sort},#{Series})
+    </insert>
+
+
+
+    <update id="updateClassify">
+        update classify
+        <set>
+            <if test="sort!=null and sort!=''">
+                sort=#{sort}
+            </if>
+            <if test="Series!=null and Series!=''">
+                Series=#{Series}
+            </if>
+        </set>
+    </update>
+
+
+    <delete id="deleteClassify">
+        delete from classify where cid=#{cid}
+    </delete>
+
+
+</mapper>
