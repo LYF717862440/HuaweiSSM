@@ -21,14 +21,14 @@ public class ClassifyServiceImpl implements ClassifyService{
     }
 
     public boolean addClassify(Classify classify) {
-        return false;
+        return classifyDao.addClassify(classify);
     }
 
     public boolean updateClassify(Classify classify) {
-        return false;
+        return classifyDao.updateClassify(classify);
     }
 
     public boolean deleteClassify(String cid) {
-        return false;
+        return classifyDao.deleteClassify(cid);
     }
 }

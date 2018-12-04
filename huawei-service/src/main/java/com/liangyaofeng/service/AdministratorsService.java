@@ -18,7 +18,7 @@ public interface AdministratorsService {
 
     boolean addAdministrators(Administrators administrators);
 
-    boolean deleteAdministrators(@Param("loginId") String loginId);
+    boolean deleteAdministrators(String loginId);
 
     boolean updateAdministrators(Administrators administrators);
 

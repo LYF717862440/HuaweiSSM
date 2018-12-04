@@ -12,12 +12,14 @@
     <script type="text/javascript" src="../../lib/html5shiv.js"></script>
     <script type="text/javascript" src="../../lib/respond.min.js"></script>
     <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../../CSS/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../static/h-ui/css/H-ui.min.css" />
     <link rel="stylesheet" type="text/css" href="../../static/h-ui.admin/css/H-ui.admin.css" />
     <link rel="stylesheet" type="text/css" href="../../lib/Hui-iconfont/1.0.8/iconfont.css" />
     <link rel="stylesheet" type="text/css" href="../../static/h-ui.admin/skin/default/skin.css" id="skin" />
     <link rel="stylesheet" type="text/css" href="../../static/h-ui.admin/css/style.css" />
     <!--[if IE 6]>
+    <script type="text/javascript" src="../../JS/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../lib/DD_belatedPNG_0.0.8a-min.js" ></script>
     <script>DD_belatedPNG.fix('*');</script>
     <![endif]-->
@@ -39,7 +41,7 @@
         </div>
         <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="product_add('添加产品','product-add.html')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加产品</a></span> <span class="r">共有数据：<strong>${pageInfo.total}</strong> 条</span> </div>
         <div class="mt-20">
-            <table class="table table-border table-bordered table-bg table-hover table-sort">
+            <table class="table table-border table-bordered table-bg table-hover">
                 <thead>
                 <tr class="text-c">
                     <th width="40"><input name="" type="checkbox" value=""></th>
@@ -64,6 +66,48 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- 分页信息 -->
+        <div class="row">
+            <!-- 分页文字信息，其中分页信息都封装在pageInfo中 -->
+            <div class="col-md-6">
+                当前第：${pageInfo.pageNum}页，总共：${pageInfo.pages}页
+            </div>
+
+            <!-- 分页条 -->
+            <div class="col-md-6">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li><a href="classifyInfo?pn=1">首页</a></li>
+                        <c:if test="${pageInfo.hasPreviousPage}">
+                            <li>
+                                <a href="classifyInfo?pn=${pageInfo.pageNum-1}" aria-label="Previous">
+                                    <span aria-hidden="true">上一页</span>
+                                </a>
+                            </li>
+                        </c:if>
+
+                        <c:forEach items="${pageInfo.navigatepageNums}" var="page_Num">
+                            <c:if test="${page_Num == pageInfo.pageNum}">
+                                <li class="active"><a href="#">${ page_Num}</a></li>
+                            </c:if>
+                            <c:if test="${page_Num != pageInfo.pageNum}">
+                                <li><a href="classifyInfo?pn=${page_Num}">${page_Num}</a></li>
+                            </c:if>
+                        </c:forEach>
+                        <c:if test="${pageInfo.hasNextPage}">
+                            <li>
+                                <a href="classifyInfo?pn=${pageInfo.pageNum+1}" aria-label="Next">
+                                    <span aria-hidden="true">下一页</span>
+                                </a>
+                            </li>
+                        </c:if>
+                        <li><a href="classifyInfo?pn=${pageInfo.pages}">末页</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
     </div>
 </div>
 

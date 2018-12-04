@@ -25,14 +25,14 @@ public class GoodsServiceImpl implements GoodsService{
     }
 
     public boolean addGoods(Goods goods) {
-        return false;
+        return goodsDao.addGoods(goods);
     }
 
     public boolean updateGoods(Goods goods) {
-        return false;
+        return goodsDao.updateGoods(goods);
     }
 
-    public boolean deleteGoodsbyGid(Goods goods) {
-        return false;
+    public boolean deleteGoodsbyGid(String loginId) {
+        return goodsDao.deleteGoodsbyGid(loginId);
     }
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间应该是对应接口的包名+接口名 -->
+<mapper namespace="com.liangyaofeng.dao.UsersDao">
+
+    <!--组合查询-->
+    <select id="selectAllUsersbytwo" resultType="com.liangyaofeng.entity.Users">
+        select Uid,loginId,Password,Uname,Sex,Uphone,Balance,Ubirthday,Ustate
+        from users
+        <where>
+            <if test="loginId!=null and loginId!=''">
+                loginId like concat(concat('%',#{loginId}),'%')
+            </if>
+            <if test="uname!=null and uname!=''">
+                Uname like concat(concat('%',#{uname}),'%')
+            </if>
+        </where>
+    </select>
+
+
+    <!--查询所有-->
+    <select id="selectAllUsers" resultType="com.liangyaofeng.entity.Users">
+        select Uid,loginId,Password,Uname,Sex,Uphone,Balance,Ubirthday,Ustate
+        from users
+    </select>
+
+
+    <!--查询账号-->
+    <!--登录验证-->
+    <select id="selectUsersbyloginId" resultType="com.liangyaofeng.entity.Users">
+        select Uid,loginId,Password,Uname,Sex,Uphone,Balance,Ubirthday,Ustate
+        from users
+        where loginId=#{loginId}
+    </select>
+
+
+
+
+
+    <insert id="addUsers">
+
+    </insert>
+
+
+
+    <update id="updateUsers">
+
+    </update>
+
+
+    <delete id="deleteUsersbyloginId">
+        delete from users where loginId=#{loginId}
+    </delete>
+
+
+</mapper>

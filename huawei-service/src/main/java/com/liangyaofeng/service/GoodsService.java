@@ -13,7 +13,7 @@ public interface GoodsService {
 
     boolean updateGoods(Goods goods);
 
-    boolean deleteGoodsbyGid(Goods goods);
+    boolean deleteGoodsbyGid(String loginId);
 
 
 }

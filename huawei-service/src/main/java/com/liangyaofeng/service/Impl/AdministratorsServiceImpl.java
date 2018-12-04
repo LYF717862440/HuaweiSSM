@@ -37,7 +37,7 @@ public class AdministratorsServiceImpl implements AdministratorsService{
         }
         result.setStatus(0);
         result.setMsg("用户名和密码正确");
-        result.setData(administrators.getLoginId());//返回username
+        result.setData(administrators.getLoginId());//返回loginId
         return  result;
     }
 
@@ -49,18 +49,19 @@ public class AdministratorsServiceImpl implements AdministratorsService{
     }
 
     public Administrators selectAllbyloginId(String loginId) {
-        return null;
+        Administrators administrators=administratorsDao.selectAllbyloginId(loginId);
+        return administrators;
     }
 
     public boolean addAdministrators(Administrators administrators) {
-        return false;
+        return administratorsDao.addAdministrators(administrators);
     }
 
     public boolean deleteAdministrators(String loginId) {
-        return false;
+        return administratorsDao.deleteAdministrators(loginId);
     }
 
     public boolean updateAdministrators(Administrators administrators) {
-        return false;
+        return administratorsDao.updateAdministrators(administrators);
     }
 }

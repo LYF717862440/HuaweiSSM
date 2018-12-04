@@ -40,9 +40,9 @@
         --->
         <!--<input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d' })" id="datemax" class="input-text Wdate" style="width:120px;">
         <input type="text" class="input-text" style="width:250px" placeholder="输入管理员名称" id="" name="">-->
-        <label for="txtGtype">管理员账号：</label><input type="text" class="txtstyle" name="txtGtype" />
-        <label for="txtname">管理员名称：</label><input type="text" class="txtstyle" name="txtname" />
-        <label for="txtprice">职位：</label><input type="text" class="txtstyle" name="txtprice" />-<input type="text" class="txtstyle" name="txtprice" />
+        <label for="atype">管理员账号：</label><input type="text" class="txtstyle" id="atype" name="txtGtype" />
+        <label for="aname">管理员名称：</label><input type="text" class="txtstyle" id="aname" name="txtname" />
+        <label for="ajop">职位：</label><input type="text" class="txtstyle" id="ajop" name="txtprice" />-<input type="text" class="txtstyle" name="txtprice" />
         <button type="submit" class="btn btn-success" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
     </div>
     <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="admin_add('添加商品','admin-add.html','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加商品</a></span> <span class="r">共有数据：<strong>${pageInfo.total}</strong> 条</span> </div>
