@@ -35,7 +35,7 @@
         <input type="text" name="txtuname" id="txtuname" placeholder=" 用户名称" style="width:250px" class="input-text">
         <button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜索用户</button>
     </div>
-    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="picture_add('添加图片','picture-add.html')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong>${pageInfo.total}</strong> 条</span> </div>
+    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="picture_add('添加用户','usersadd')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong>${pageInfo.total}</strong> 条</span> </div>
     <div class="mt-20">
         <table class="table table-border table-bordered table-bg table-hover">
             <thead>
@@ -44,11 +44,10 @@
                 <th width="40">ID</th>
                 <th width="60">账号</th>
                 <th width="100">用户名称</th>
-                <th width="30">性别</th>
+                <th width="50">性别</th>
                 <th width="100">电话</th>
                 <th width="100">余额</th>
                 <th width="100">生日</th>
-                <th width="60">发布状态</th>
                 <th width="100">操作</th>
             </tr>
             </thead>
@@ -63,8 +62,7 @@
                 <td>${users.uphone}</td>
                 <td>${users.balance}</td>
                 <td>${users.ubirthday}</td>
-                <td class="td-status"><span class="label label-success radius">已发布</span></td>
-                <td class="td-manage"><a style="text-decoration:none" onClick="picture_stop(this,'10001')" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a> <a style="text-decoration:none" class="ml-5" onClick="picture_edit('图库编辑','picture-add.html','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="picture_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+                <td class="td-manage"><a style="text-decoration:none" onClick="picture_stop(this,'10001')" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a> <a style="text-decoration:none" class="ml-5" onClick="picture_edit('用户编辑','usersadd','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="picture_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
             </tr>
             </c:forEach>
             </tbody>

@@ -8,11 +8,14 @@
         select Uid,loginId,Password,Uname,Sex,Uphone,Balance,Ubirthday,Ustate
         from users
         <where>
+            <if test="uid!=null and uid!=''">
+                and Uid like concat(concat('%',#{uid}),'%')
+            </if>
             <if test="loginId!=null and loginId!=''">
-                loginId like concat(concat('%',#{loginId}),'%')
+                AND loginId like concat(concat('%',#{loginId}),'%')
             </if>
             <if test="uname!=null and uname!=''">
-                Uname like concat(concat('%',#{uname}),'%')
+                AND Uname like concat(concat('%',#{uname}),'%')
             </if>
         </where>
     </select>
@@ -22,6 +25,7 @@
     <select id="selectAllUsers" resultType="com.liangyaofeng.entity.Users">
         select Uid,loginId,Password,Uname,Sex,Uphone,Balance,Ubirthday,Ustate
         from users
+
     </select>
 
 

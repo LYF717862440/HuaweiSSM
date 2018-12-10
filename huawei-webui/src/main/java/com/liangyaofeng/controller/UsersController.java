@@ -35,6 +35,13 @@ public class UsersController {
         return "users-list";
     }
 
+    //跳转到登录页面
+    @RequestMapping("usersadd")
+    public String usersadd(Model model){
+        return "users-add";
+    }
+
+
 
 
 

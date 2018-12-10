@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface UsersDao {
 
-    List<Users> selectAllUsers(@Param("loginId")String loginId,@Param("uname")String uname);
+    List<Users> selectAllUsersbytwo(@Param("uid")long uid,@Param("loginId")String loginId,@Param("uname")String uname);
 
     List<Users> selectAllUsers();
 

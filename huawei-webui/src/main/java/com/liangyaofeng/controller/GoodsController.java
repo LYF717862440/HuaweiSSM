@@ -34,6 +34,12 @@ public class GoodsController {
         return "goods-list";
     }
 
+    //跳转到登录页面
+    @RequestMapping("goodsadd")
+    public String goodsadd(Model model){
+        return "goods-add";
+    }
+
 
 
 }

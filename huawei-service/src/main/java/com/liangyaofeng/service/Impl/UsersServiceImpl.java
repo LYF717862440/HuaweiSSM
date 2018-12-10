@@ -52,7 +52,7 @@ public class UsersServiceImpl implements UsersServie {
         if (StringUtils.isEmpty(uname)){
             uname=null;
         }
-        return usersDao.selectAllUsers(loginId,uname);
+        return usersDao.selectAllUsers();
     }
 
     public List<Users> selectAllUsers() {

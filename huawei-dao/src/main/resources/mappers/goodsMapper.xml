@@ -12,7 +12,6 @@
             <if test="gname!=null and gname!=''">
                 Gname like concat(concat('%',#{gname}),'%')
             </if>
-
         </where>
     </select>
 
