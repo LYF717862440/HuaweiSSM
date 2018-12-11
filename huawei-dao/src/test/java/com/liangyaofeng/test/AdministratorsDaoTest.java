@@ -31,6 +31,11 @@ public class AdministratorsDaoTest {
         System.out.println(list);
     }
 
+    @Test
+    public void add(){
+        Administrators administrators=new Administrators();
+    }
+
 
 
 

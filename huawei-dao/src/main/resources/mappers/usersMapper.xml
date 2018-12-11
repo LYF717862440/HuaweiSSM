@@ -8,14 +8,17 @@
         select Uid,loginId,Password,Uname,Sex,Uphone,Balance,Ubirthday,Ustate
         from users
         <where>
-            <if test="uid!=null and uid!=''">
-                and Uid like concat(concat('%',#{uid}),'%')
-            </if>
             <if test="loginId!=null and loginId!=''">
-                AND loginId like concat(concat('%',#{loginId}),'%')
+                and loginId like concat(concat('%',#{loginId}),'%')
             </if>
             <if test="uname!=null and uname!=''">
-                AND Uname like concat(concat('%',#{uname}),'%')
+                and Uname like concat(concat('%',#{uname}),'%')
+            </if>
+            <if test="sex!=null and sex!=''">
+                and Sex like concat(concat('%',#{sex}),'%')
+            </if>
+            <if test="ustate!=null and ustate!=''">
+                and Ustate like concat(concat('%',#{ustate}),'%')
             </if>
         </where>
     </select>
@@ -29,7 +32,7 @@
     </select>
 
 
-    <!--查询账号-->
+    <!--查询账号，根据loginId查询-->
     <!--登录验证-->
     <select id="selectUsersbyloginId" resultType="com.liangyaofeng.entity.Users">
         select Uid,loginId,Password,Uname,Sex,Uphone,Balance,Ubirthday,Ustate
@@ -38,22 +41,53 @@
     </select>
 
 
-
-
-
+    <!--添加-->
     <insert id="addUsers">
-
+        insert into users(loginId,Password,Uname,Sex,Uphone,Balance,Ubirthday,Ustate)
+        values(#{loginId},#{password},#{uname},#{sex},#{uphone},#{balance},#{ubirthday},#{ustate})
     </insert>
 
 
-
+    <!--修改-->
     <update id="updateUsers">
-
+        update users
+        <set>
+            <if test="password!=null and password!=''">
+                password =#{password},
+            </if>
+            <if test="uname!=null and uname!=''">
+                uname =#{uname},
+            </if>
+            <if test="sex!=null and sex!=''">
+                sex =#{sex},
+            </if>
+            <if test="uphone!=null and uphone!=''">
+                uphone =#{uphone},
+            </if>
+            <if test="balance!=null and balance!=''">
+                balance =#{balance},
+            </if>
+            <if test="ubirthday!=null and ubirthday!=''">
+                ubirthday =#{ubirthday},
+            </if>
+            <if test="ustate!=null and ustate!=''">
+                ustate =#{ustate},
+            </if>
+        </set>
+        where loginId=#{loginId}
     </update>
 
-
+    <!--删除-->
     <delete id="deleteUsersbyloginId">
         delete from users where loginId=#{loginId}
+    </delete>
+
+    <!--多删除-->
+    <delete id="deleteUsersbyList">
+        delete from users where loginId in
+        <foreach collection="list" open="(" item="loginId" separator="," close=")">
+            #{loginId}
+        </foreach>
     </delete>
 
 

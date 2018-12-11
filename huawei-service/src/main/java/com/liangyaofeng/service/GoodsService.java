@@ -9,11 +9,15 @@ public interface GoodsService {
 
     List<Goods> selectAllGoods(String gname);
 
+    Goods selectgoodsBygid(String gid);
+
     boolean addGoods(Goods goods);
 
     boolean updateGoods(Goods goods);
 
-    boolean deleteGoodsbyGid(String loginId);
+    boolean deleteGoodsbyGid(String gid);
+
+    boolean deletegoodsbyList(List<String> gids);
 
 
 }

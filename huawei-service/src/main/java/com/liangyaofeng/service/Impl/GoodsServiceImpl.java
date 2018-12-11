@@ -24,6 +24,11 @@ public class GoodsServiceImpl implements GoodsService{
         return goodsDao.selectAllGoods(gname);
     }
 
+    public Goods selectgoodsBygid(String gid) {
+        Goods goods=goodsDao.selectgoodsBygid(gid);
+        return goods;
+    }
+
     public boolean addGoods(Goods goods) {
         return goodsDao.addGoods(goods);
     }
@@ -32,7 +37,14 @@ public class GoodsServiceImpl implements GoodsService{
         return goodsDao.updateGoods(goods);
     }
 
-    public boolean deleteGoodsbyGid(String loginId) {
-        return goodsDao.deleteGoodsbyGid(loginId);
+    public boolean deleteGoodsbyGid(String gid) {
+        return goodsDao.deleteGoodsbyGid(gid);
+    }
+
+    public boolean deletegoodsbyList(List<String> gids) {
+        if(gids==null||gids.size()<=0) {
+            return false;
+        }
+        return goodsDao.deletegoodsbyList(gids);
     }
 }

@@ -14,5 +14,7 @@ public interface ClassifyDao {
 
     boolean deleteClassify(String cid);
 
+    boolean deleteClasifyBylist(List<String> cids);
+
 
 }

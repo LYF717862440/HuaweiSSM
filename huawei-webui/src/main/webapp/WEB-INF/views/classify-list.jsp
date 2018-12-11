@@ -26,9 +26,9 @@
     <link rel="stylesheet" href="../../lib/zTree/v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
 </head>
 <body>
-<div class="pos-a" style="width:200px;left:0;top:0; bottom:0; height:100%; border-right:1px solid #e5e5e5; background-color:#f5f5f5; overflow:auto;">
-    <ul id="treeDemo" class="ztree"></ul>
-</div>
+<%--<div class="pos-a" style="width:200px;left:0;top:0; bottom:0; height:100%; border-right:1px solid #e5e5e5; background-color:#f5f5f5; overflow:auto;">--%>
+    <%--&lt;%&ndash;<ul id="treeDemo" class="ztree"></ul>&ndash;%&gt;--%>
+<%--</div>--%>
 <div style="margin-left:200px;">
     <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 类型管理 <span class="c-gray en">&gt;</span> 类型列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
     <div class="page-container">

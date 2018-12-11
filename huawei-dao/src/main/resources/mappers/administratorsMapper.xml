@@ -21,7 +21,7 @@
     <!--添加-->
     <insert id="addAdministrators">
         insert into administrators(Aid,LoginId,Password,Aname,Asex,jop,Aphone,Abirthday,Astate)
-        values (#{Aid},#{LoginId},#{Password},#{Aname},#{Asex},#{jop},#{Aphone},#{Abirthday},#{Astate})
+        values (#{aid},#{loginId},#{password},#{aname},#{asex},#{jop},#{aphone},#{abirthday},#{astate})
     </insert>
 
 
@@ -30,32 +30,41 @@
         delete from administrators where LoginId=#{loginId}
     </delete>
 
+    <!--多删除-->
+    <delete id="deleteadminbyList">
+        delete from administrators where loginId in
+        <foreach collection="list" open="(" item="loginId" separator="," close=")">
+            #{loginId}
+        </foreach>
+    </delete>
+
     <!--修改-->
     <update id="updateAdministrators">
         update administrators
         <set>
-            <if test="Password!=null and Password!=''">
-                Password =#{Password},
+            <if test="password!=null and password!=''">
+                Password =#{password},
             </if>
-            <if test="Aname!=null and Aname!=''">
-                Aname =#{Aname},
+            <if test="aname!=null and aname!=''">
+                Aname =#{aname},
             </if>
-            <if test="Asex!=null and Asex!=''">
-                Asex =#{Asex},
+            <if test="asex!=null and asex!=''">
+                Asex =#{asex},
             </if>
             <if test="jop!=null and jop!=''">
                 jop =#{jop},
             </if>
-            <if test="Aphone!=null and Aphone!=''">
-                Aphone =#{Aphone},
+            <if test="aphone!=null and aphone!=''">
+                Aphone =#{aphone},
             </if>
-            <if test="Abirthday!=null and Abirthday!=''">
-                Abirthday =#{Abirthday},
+            <if test="abirthday!=null and abirthday!=''">
+                Abirthday =#{abirthday},
             </if>
-            <if test="Astate!=null and Astate!=''">
-                Astate =#{Astate},
+            <if test="astate!=null and astate!=''">
+                Astate =#{astate},
             </if>
         </set>
+        where Aid=#{aid}
     </update>
 
 

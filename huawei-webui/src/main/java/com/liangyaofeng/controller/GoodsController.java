@@ -20,6 +20,13 @@ public class GoodsController {
     @Autowired
     GoodsService goodsService;
 
+//    跳转测试数据
+    @RequestMapping("text")
+    public String text(Model model){
+        return "goods-add";
+    }
+
+
 
     @RequestMapping("goodsInfo")
     public String goodsInfo(@RequestParam(required=true,defaultValue="1") Integer pn,
@@ -34,11 +41,56 @@ public class GoodsController {
         return "goods-list";
     }
 
-    //跳转到登录页面
+    //跳转页面
     @RequestMapping("goodsadd")
     public String goodsadd(Model model){
         return "goods-add";
     }
+
+
+    //    添加
+    @RequestMapping("addgoods")
+    public String addgoods(Model model,Goods goods){
+        if(goods != null){
+            goodsService.addGoods(goods);
+        }
+        return "redirect:/admin/goods/goodsInfo";
+    }
+
+    //    修改
+    @RequestMapping("updategoods")
+    public String updategoods(Model model,Goods goods){
+        if(goodsService.updateGoods(goods)){
+            goods = goodsService.selectgoodsBygid(goods.getGid());
+            model.addAttribute("goods", goods);
+            return "redirect:/admin/goods/goodsInfo";
+        }
+        return "error";
+    }
+
+
+
+    //    删除
+    @RequestMapping("/delgoods")
+    public String delgoods(String gid,Model model){
+        model.addAttribute("goods", goodsService.deleteGoodsbyGid(gid));
+        return "redirect:/admin/goods/goodsInfo";
+    }
+
+    //   多删除
+    @RequestMapping("/deletes")
+    public String deletes(Model model, @RequestParam("ids") List<String> gids){
+
+        String msg="删除成功！";
+
+        if(goodsService.deletegoodsbyList(gids)==false){
+            msg="删除失败！";
+        }
+
+        model.addAttribute("goods",goodsService.selectAllGoods(""));
+        return "redirect:/admin/goods/goodsInfo";
+    }
+
 
 
 

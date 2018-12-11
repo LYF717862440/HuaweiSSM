@@ -30,29 +30,35 @@
 </head>
 <body>
 <div class="page-container">
-    <form action="" method="post" class="form form-horizontal" id="form-article-add">
+    <form action="addgoods" method="post" class="form form-horizontal" id="form-article-add">
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品编号：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="">
+                <input type="text" class="input-text" value="" placeholder="" id="gid" name="gid">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品名称：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="" id="gname" name="gname">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">类型编号：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="">
+                <input type="text" class="input-text" value="" placeholder="" id="cid" name="cid">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">商品类型：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" name="" id="" placeholder="" value="" class="input-text">
+                <input type="text" name="gtype" id="gtype" placeholder="" value="" class="input-text">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">商品说明：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" name="" id="" placeholder="" value="" class="input-text">
+                <input type="text" name="gexplain" id="gexplain" placeholder="" value="" class="input-text">
             </div>
         </div>
 
@@ -60,82 +66,60 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">商品价格：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
+                <input type="text" name="gprice" id="gprice" placeholder="" value="" class="input-text" style="width:90%">
                 元</div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">商品编码：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
+                <input type="text" name="gcoding" id="gcoding" placeholder="" value="" class="input-text" style="width:90%">
                 </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">颜色：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
+                <input type="text" name="colour" id="colour" placeholder="" value="" class="input-text" style="width:90%">
                 </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">版本：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}' })" id="datemin" class="input-text Wdate" style="width:180px;">
+                <input type="text" name="versions" id="versions" placeholder="" value="" class="input-text" style="width:90%">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">库存：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'datemin\')}' })" id="datemax" class="input-text Wdate" style="width:180px;">
+                <input type="text" name="stock" id="stock" placeholder="" value="" class="input-text" style="width:90%">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">状态：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" name="" id="" placeholder="多个关键字用英文逗号隔开，限10个关键字" value="" class="input-text">
+                <input type="text" name="gstate" id="gstate" placeholder="" value="" class="input-text">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">管理员ID：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" name="aid" id="aid" placeholder="" value="" class="input-text">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">商品详细：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <textarea name="" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
+                <textarea name="details" id="details" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
                 <p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">缩略图：</label>
+            <label class="form-label col-xs-4 col-sm-2">图片：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <div class="uploader-thum-container">
-                    <div id="fileList" class="uploader-list"></div>
-                    <div id="filePicker">选择图片</div>
-                    <button id="btn-star" class="btn btn-default btn-uploadstar radius ml-10">开始上传</button>
-                </div>
+                <input type="file" name="gimg" id="gimg">
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">图片上传：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <div class="uploader-list-container">
-                    <div class="queueList">
-                        <div id="dndArea" class="placeholder">
-                            <div id="filePicker-2"></div>
-                            <p>或将照片拖到这里，单次最多可选300张</p>
-                        </div>
-                    </div>
-                    <div class="statusBar" style="display:none;">
-                        <div class="progress"> <span class="text">0%</span> <span class="percentage"></span> </div>
-                        <div class="info"></div>
-                        <div class="btns">
-                            <div id="filePicker2"></div>
-                            <div class="uploadBtn">开始上传</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">详细内容：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <script id="editor" type="text/plain" style="width:100%;height:400px;"></script>
-                </div>
+
                 </div>
                 <div class="row cl">
                     <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
@@ -148,20 +132,20 @@
                 </div>
 
                 <!--_footer 作为公共模版分离出去-->
-                <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
-                <script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
-                <script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script>
-                <script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+                <script type="text/javascript" src="../../lib/jquery/1.9.1/jquery.min.js"></script>
+                <script type="text/javascript" src="../../lib/layer/2.4/layer.js"></script>
+                <script type="text/javascript" src="../../static/h-ui/js/H-ui.min.js"></script>
+                <script type="text/javascript" src="../../static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
 
                 <!--请在下方写此页面业务相关的脚本-->
-                <script type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"></script>
-                <script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script>
-                <script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script>
-                <script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script>
-                <script type="text/javascript" src="lib/webuploader/0.1.5/webuploader.min.js"></script>
-                <script type="text/javascript" src="lib/ueditor/1.4.3/ueditor.config.js"></script>
-                <script type="text/javascript" src="lib/ueditor/1.4.3/ueditor.all.min.js"> </script>
-                <script type="text/javascript" src="lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+                <script type="text/javascript" src="../../lib/My97DatePicker/4.8/WdatePicker.js"></script>
+                <script type="text/javascript" src="../../lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+                <script type="text/javascript" src="../../lib/jquery.validation/1.14.0/validate-methods.js"></script>
+                <script type="text/javascript" src="../../lib/jquery.validation/1.14.0/messages_zh.js"></script>
+                <script type="text/javascript" src="../../lib/webuploader/0.1.5/webuploader.min.js"></script>
+                <script type="text/javascript" src="../../lib/ueditor/1.4.3/ueditor.config.js"></script>
+                <script type="text/javascript" src="../../lib/ueditor/1.4.3/ueditor.all.min.js"> </script>
+                <script type="text/javascript" src="../../lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
                 <script type="text/javascript">
                     $(function(){
                         $('.skin-minimal input').iCheck({

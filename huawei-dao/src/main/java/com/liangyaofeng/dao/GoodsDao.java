@@ -9,11 +9,15 @@ public interface GoodsDao {
 
     List<Goods> selectAllGoods(@Param("gname")String gname);
 
+    Goods selectgoodsBygid(@Param("gid")String gid);
+
     boolean addGoods(Goods goods);
 
     boolean updateGoods(Goods goods);
 
-    boolean deleteGoodsbyGid(String loginId);
+    boolean deleteGoodsbyGid(String gid);
+
+    boolean deletegoodsbyList(List<String> gids);
 
 
 }

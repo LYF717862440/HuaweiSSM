@@ -54,17 +54,16 @@
             <th scope="col" colspan="12">商品列表</th>
         </tr>
         <tr class="text-c">
-            <th width="25"><input type="checkbox" name="" value=""></th>
+            <th width="30"><input type="checkbox" name="" value=""></th>
             <th width="40">ID</th>
             <th width="80">商品名称</th>
             <th width="60">商品类型</th>
             <th width="50">价格</th>
-            <th width="100">商品说明</th>
+            <%--<th width="60">商品说明</th>--%>
             <th width="80">颜色</th>
             <th width="40">版本</th>
-            <th width="60">详细</th>
-            <%--<th width="100">详细</th>--%>
-            <th width="100">是否已启用</th>
+            <%--<th width="60">详细</th>--%>
+            <%--<th width="80">是否已启用</th>--%>
             <th width="100">操作</th>
         </tr>
         </thead>
@@ -76,13 +75,13 @@
                 <td>${goods.gname}</td>
                 <td>${goods.gtype}</td>
                 <td>${goods.gprice}</td>
-                <td>${goods.gexplain}</td>
+                <%--<td>${goods.gexplain}</td>--%>
                 <td>${goods.colour}</td>
                 <td>${goods.versions}</td>
-                <td>${goods.details}</td>
+                <%--<td>${goods.details}</td>--%>
                 <%--<td>${goods.gstate}</td>--%>
-                <td class="td-status"><span class="label label-success radius">已启用</span></td>
-                <td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,'10001')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" onclick="admin_edit('商品编辑','goodsadd','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+                <%--<td class="td-status"><span class="label label-success radius">已启用</span></td>--%>
+                <td class="td-manage"><a style="text-decoration:none" onclick="users_show(${goods.gimg},${goods.gexplain},${goods.details},${goods.stock},${goods.gstate})" href="#" title=""><i class="Hui-iconfont">&#xe631;</i></a><a title="编辑" href="javascript:;" onclick="admin_edit('商品编辑','goodsadd','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
             </tr>
         </c:forEach>
 
@@ -136,10 +135,6 @@
 </div>
 
 
-
-
-
-
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="../../lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="../../lib/layer/2.4/layer.js"></script>
@@ -147,10 +142,36 @@
 <script type="text/javascript" src="../../static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本-->
+<link rel="stylesheet" href="../../CSS/dialog.css">
 <script type="text/javascript" src="../../lib/My97DatePicker/4.8/WdatePicker.js"></script>
 <script type="text/javascript" src="../../lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="../../lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript" src="../../JS/dialog-min.js"></script>
 <script type="text/javascript">
+
+    function users_show(gimg,gexplain,details,stock,gstate){
+        var d = dialog({
+            title: '消息',
+            content: '<p>编号<input id="id" autofocus value="'+gimg+'"/></p><p>姓名<input id="name" autofocus /></p><p>性别<select id="sex"><option value="男">男</option></select></p>',
+            okValue: '确 定',
+            ok: function() {
+
+                var that = this;
+                setTimeout(function() {
+                    that.title('提交中..');
+                }, 2000);
+                return false;
+            },
+            cancelValue: '取消',
+            cancel: function() {
+                alert('你点了取消按钮');
+            }
+        });
+    }
+
+
+
+
     /*管理员-增加*/
     function admin_add(title,url,w,h){
         layer_show(title,url,w,h);
@@ -173,11 +194,11 @@
         });
     }
 
-    /*管理员-编辑*/
+    // /*管理员-编辑*/
     function admin_edit(title,url,id,w,h){
         layer_show(title,url,w,h);
     }
-    /*管理员-停用*/
+    // /*管理员-停用*/
     function admin_stop(obj,id){
         layer.confirm('确认要停用吗？',function(index){
             //此处请求后台程序，下方是成功后的前台处理……

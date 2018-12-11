@@ -16,6 +16,8 @@ public interface AdministratorsDao {
 
      boolean deleteAdministrators(@Param("loginId") String loginId);
 
+     boolean deleteadminbyList(List<String> list);
+
      boolean updateAdministrators(Administrators administrators);
 
 
